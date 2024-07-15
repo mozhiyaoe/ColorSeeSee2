@@ -16,7 +16,7 @@ MonoBehaviour:
   webGLOutputDir: F:/GameOut
   useByteAudioAPI: 0
   wasmMemorySize: 128
-  isWebGL2: 0
+  isWebGL2: 1
   needCompress: 1
   symbolMode: 1
   profiling: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
   a: 
   version: 
   autoVersion: 0
-  b: F:\GameOut\webgl_package-20240715_172531.zip
+  b: F:\GameOut\webgl_package-20240715_175230.zip
   c: 0
   d: 0
   e: 0

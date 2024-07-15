@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 415590108}
   - component: {fileID: 415590107}
   - component: {fileID: 415590106}
+  - component: {fileID: 415590109}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -346,8 +347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -282, y: -49}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -215.1938, y: -84}
+  m_SizeDelta: {x: 293.6024, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &415590106
 MonoBehaviour:
@@ -392,7 +393,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 415590107}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 415590109}
+        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
+        m_MethodName: OnRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &415590107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +444,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415590104}
   m_CullTransparentMesh: 1
+--- !u!114 &415590109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415590104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b04e3180aaa09840bd584728449fa30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &439929285
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,18 +515,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: "\u91CD\u65B0\u5F00\u59CB"
 --- !u!222 &439929288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -546,7 +571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -311.55, y: -170.2366}
+  m_AnchoredPosition: {x: -269, y: -354}
   m_SizeDelta: {x: 263.79, y: 80.4732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466522572
@@ -759,7 +784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 263.11462, y: -176.17786}
+  m_AnchoredPosition: {x: 258, y: -353}
   m_SizeDelta: {x: 277.7707, y: 84.3557}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630102993
@@ -1081,7 +1106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.2602, y: 159.3602}
+  m_AnchoredPosition: {x: 4, y: 506}
   m_SizeDelta: {x: 299.493, y: 92.3749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &704810893
@@ -1357,8 +1382,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5.1204}
-  m_SizeDelta: {x: 1087, y: 216.1051}
+  m_AnchoredPosition: {x: 0.5525, y: 79.0996}
+  m_SizeDelta: {x: 802.9, y: 353.7904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224584722
 MonoBehaviour:
@@ -1478,7 +1503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -318.07272, y: 168.26819}
+  m_AnchoredPosition: {x: -318.07272, y: 346}
   m_SizeDelta: {x: 250.727, y: 91.2407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256473090
@@ -1685,8 +1710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 117}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -14.1255, y: 421}
+  m_SizeDelta: {x: 635.1307, y: 160.982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860531690
 MonoBehaviour:
@@ -1701,7 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1710,18 +1735,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\u83DC\uFF0C\u5C31\u591A\u7EC3"
 --- !u!222 &1860531691
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1843,7 +1868,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2941, y: -14.5285}
+  m_AnchoredPosition: {x: -1.2941, y: 58}
   m_SizeDelta: {x: 356.7159, y: 98.9429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072191961
