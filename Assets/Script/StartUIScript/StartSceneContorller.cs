@@ -6,16 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class StartSceneContorller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SecondModelStart()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        SceneManager.LoadScene("SecondModel");
     }
     public void FirstModelStart()
     {

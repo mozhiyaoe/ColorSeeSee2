@@ -11,7 +11,7 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks.Sources;
 
-public class Controller : MonoBehaviour
+public class FirstModelController : MonoBehaviour
 {
 
 
@@ -87,9 +87,9 @@ public class Controller : MonoBehaviour
     // 颜色4
     public static Color32 Color4 = new Color32(0, 255, 0, 255);
     // 颜色5
-    public static Color32 Color5 = new Color32(0, 255, 255, 255);
+    public static Color32 Color5 = new Color32(255, 165, 0, 255);
     // 颜色6
-    public static Color32 Color6 = new Color32(0, 0, 128, 255);
+    public static Color32 Color6 = new Color32(0, 255, 255, 255);
     // 颜色7
     public static Color32 Color7 = new Color32(128, 0, 128, 255);
 
@@ -122,9 +122,9 @@ public class Controller : MonoBehaviour
     // 单词4
     public static Word Word4 = new Word("绿", Color4);
     // 单词5
-    public static Word Word5 = new Word("青", Color5);
+    public static Word Word5 = new Word("橙", Color5);
     // 单词6
-    public static Word Word6 = new Word("蓝", Color6);
+    public static Word Word6 = new Word("青", Color6);
     // 单词7
     public static Word Word7 = new Word("紫", Color7);
 
