@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b755e9da3e699ec4eb0eeff5f20f828e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstModelButton: {fileID: 0}
+  SecondModelButton: {fileID: 0}
 --- !u!4 &177834383
 Transform:
   m_ObjectHideFlags: 0
@@ -1041,8 +1043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 1802842968}
-  _x: 0.03
-  _y: 0.03
+  _x: 0.1
+  _y: 0.1
 --- !u!114 &1802842968
 MonoBehaviour:
   m_ObjectHideFlags: 0

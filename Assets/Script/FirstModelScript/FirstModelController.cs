@@ -76,6 +76,7 @@ public class FirstModelController : MonoBehaviour
     [HideInInspector]
 
     public bool IsRight;
+    public Button ShareButtton;
 
 
     // 颜色1
@@ -242,6 +243,8 @@ public class FirstModelController : MonoBehaviour
         FaileText.gameObject.SetActive(true);
         FalieImage.gameObject.SetActive(true);
         Restart.gameObject.SetActive(true);
+        ShareButtton.gameObject.SetActive(true);
+
         TimeLeft = 0;
         ErrorMusic.Play();
         BackgroundMusic.Stop();
@@ -296,6 +299,7 @@ public class FirstModelController : MonoBehaviour
         FaileText.gameObject.SetActive(false);
         FalieImage.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
+        ShareButtton.gameObject.SetActive(false);
         BackgroundMusic.Play();
     }
     // 更新

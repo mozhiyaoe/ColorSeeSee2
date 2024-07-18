@@ -3,20 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
+using StarkSDKSpace;
 public class StartSceneContorller : MonoBehaviour
 {
-    public void SecondModelStart()
+    public Button FirstModelButton;
+    public Button SecondModelButton;
+    void Start()
     {
-        SceneManager.LoadScene("SecondModel");
+
+        FirstModelButton.onClick.AddListener(FirstModelStart);
+        FirstModelButton.onClick.AddListener(StartVideo);
+
+        SecondModelButton.onClick.AddListener(SecondModelStart);
+        SecondModelButton.onClick.AddListener(StartVideo);
+
+
     }
+
     public void FirstModelStart()
     {
         SceneManager.LoadScene("FirstModel");
     }
-    public void GameOut()
+    public void SecondModelStart()
     {
-        Application.Quit();
-        Debug.Log("gameover");
+        SceneManager.LoadScene("SecondModel");
+    }
+
+
+
+    void StartVideo(){
+        bool isStart=StarkSDK.API.GetStarkGameRecorder().StartRecord(true,200);
     }
 }

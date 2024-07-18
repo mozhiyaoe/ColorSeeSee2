@@ -1,7 +1,7 @@
 {
     "displayName": "Stark SDK - Unity Tools",
     "name": "com.bytedance.starksdk.unitytools",
-    "version": "3.30.6",
+    "version": "3.30.7",
     "scripts": {
         "postinstall": "",
         "preuninstall": ""
