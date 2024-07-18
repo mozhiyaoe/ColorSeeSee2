@@ -75,7 +75,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_FontData.m_Font
     value: 
-    objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    objectReference: {fileID: 12800000, guid: 8f8ea8e06c289d14dbe17cf5a52946a7, type: 3}
   - target: {fileID: 0}
     propertyPath: m_FontData.m_FontSize
     value: 50
@@ -122,6 +122,6 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Text
-    value: "\u5F97\u5206"
+    value: "\u5B57"
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
