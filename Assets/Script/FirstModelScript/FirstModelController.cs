@@ -338,7 +338,7 @@ public class FirstModelController : MonoBehaviour
             Score = Score + 1;
             IsRight = false;
         }
-        ScoreText.text = "得分：" + Score.ToString();
+        ScoreText.text = Score.ToString();
 
 
 

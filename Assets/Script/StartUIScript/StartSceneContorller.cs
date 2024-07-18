@@ -13,10 +13,10 @@ public class StartSceneContorller : MonoBehaviour
     {
 
         FirstModelButton.onClick.AddListener(FirstModelStart);
-        FirstModelButton.onClick.AddListener(StartVideo);
+       
 
         SecondModelButton.onClick.AddListener(SecondModelStart);
-        SecondModelButton.onClick.AddListener(StartVideo);
+       
 
 
     }
@@ -32,7 +32,5 @@ public class StartSceneContorller : MonoBehaviour
 
 
 
-    void StartVideo(){
-        bool isStart=StarkSDK.API.GetStarkGameRecorder().StartRecord(true,200);
-    }
+   
 }
