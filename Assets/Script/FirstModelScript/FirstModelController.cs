@@ -10,6 +10,7 @@ using System.Drawing;
 using System;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks.Sources;
+using JetBrains.Annotations;
 
 
 public class FirstModelController : MonoBehaviour
@@ -78,6 +79,14 @@ public class FirstModelController : MonoBehaviour
 
     public bool IsRight;
     public Button ShareButtton;
+    [HideInInspector]
+    public float NewTimeLeft = 5f;
+    public Text TimeOutText;
+    public Text ChooseErrorText;
+    public Button BackToMeumButton;
+    [HideInInspector]
+
+    public bool IsCounting = true;
 
 
     // 颜色1
@@ -231,6 +240,7 @@ public class FirstModelController : MonoBehaviour
         TimeLeft = 5;
         RightMusic.Play();
         IsRight = true;
+        TimeLeft = NewTimeLeft;
 
 
 
@@ -245,8 +255,13 @@ public class FirstModelController : MonoBehaviour
         FalieImage.gameObject.SetActive(true);
         Restart.gameObject.SetActive(true);
         ShareButtton.gameObject.SetActive(true);
+        ChooseErrorText.gameObject.SetActive(true);
+        BackToMeumButton.gameObject.SetActive(true);
+        IsCounting = false;
 
-        TimeLeft = 0;
+
+
+        TimeLeft = 1f;
         ErrorMusic.Play();
         BackgroundMusic.Stop();
     }
@@ -301,7 +316,11 @@ public class FirstModelController : MonoBehaviour
         FalieImage.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
         ShareButtton.gameObject.SetActive(false);
+        ChooseErrorText.gameObject.SetActive(false);
+        TimeOutText.gameObject.SetActive(false);
+        BackToMeumButton.gameObject.SetActive(false);
         BackgroundMusic.Play();
+
     }
     // 更新
     void Update()
@@ -311,15 +330,24 @@ public class FirstModelController : MonoBehaviour
 
         CountdownText.text = TimeLeft.ToString(format: "0.00");
 
+        if (IsCounting == true)
+        {
+            TimeLeft -= Time.deltaTime;
 
-        TimeLeft -= Time.deltaTime;
+
+        }
 
         if (TimeLeft <= 0)
         {
             FaileText.gameObject.SetActive(true);
             FalieImage.gameObject.SetActive(true);
             Restart.gameObject.SetActive(true);
-            TimeLeft = 0;
+            TimeOutText.gameObject.SetActive(true);
+            BackToMeumButton.gameObject.SetActive(true);
+            ShareButtton.gameObject.SetActive(true);
+
+            TimeLeft = 0f;
+            IsCounting = false;
 
         }
         // 判断左右按钮是否正确
@@ -336,8 +364,15 @@ public class FirstModelController : MonoBehaviour
         //自动加分
         if (IsRight == true)
         {
+            Debug.Log(TimeLeft);
             Score = Score + 1;
+            if (TimeLeft > 0.5f)
+            {
+                NewTimeLeft = NewTimeLeft - 0.2f;
+
+            }
             IsRight = false;
+
         }
         ScoreText.text = Score.ToString();
 
@@ -347,7 +382,7 @@ public class FirstModelController : MonoBehaviour
 
 
 
-        
+
 
 
     }
