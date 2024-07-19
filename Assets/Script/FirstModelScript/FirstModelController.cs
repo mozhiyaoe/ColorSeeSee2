@@ -11,6 +11,7 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks.Sources;
 
+
 public class FirstModelController : MonoBehaviour
 {
 
@@ -346,7 +347,7 @@ public class FirstModelController : MonoBehaviour
 
 
 
-        Debug.Log(Score);
+        
 
 
     }
