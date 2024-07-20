@@ -7,17 +7,18 @@ using UnityEngine.UI;
 
 public class StarkSDKTest : MonoBehaviour
 {
-   
+
     public Button ShareButton;
- 
+
     void Start()
     {
-        StarkSDK.API.GetStarkShare().ShowShareMenu() ;
+        StarkSDK.API.GetStarkShare().ShowShareMenu();
         StartVideo();
 
         ShareButton.onClick.AddListener(ShareVideo);
+      
     }
-    
+
 
     void StartVideo()
     {
