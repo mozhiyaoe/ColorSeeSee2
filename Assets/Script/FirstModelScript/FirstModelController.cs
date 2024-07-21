@@ -67,18 +67,18 @@ public class FirstModelController : MonoBehaviour
     // 右按钮
     public Button RightButton;
     // 错误音效
-    public AudioSource ErrorMusic;
+    public   AudioSource FirstModelErrorMusic;
     // 背景音效
-    public AudioSource BackgroundMusic;
+    public  AudioSource FistModelBackgroundMusic;
     // 正确音效
-    public AudioSource RightMusic;
+    public  AudioSource FirstModelRightMusic;
     public Text ScoreText;
     [HideInInspector]
     public int Score = 0;
     [HideInInspector]
 
     public bool IsRight;
-    public Button ShareButtton;
+    
     [HideInInspector]
     public float NewTimeLeft = 5f;
     public Text TimeOutText;
@@ -238,7 +238,7 @@ public class FirstModelController : MonoBehaviour
     {
         Coloring();
         TimeLeft = 5;
-        RightMusic.Play();
+        FirstModelRightMusic.Play();
         IsRight = true;
         TimeLeft = NewTimeLeft;
 
@@ -254,7 +254,7 @@ public class FirstModelController : MonoBehaviour
         FaileText.gameObject.SetActive(true);
         FalieImage.gameObject.SetActive(true);
         Restart.gameObject.SetActive(true);
-        ShareButtton.gameObject.SetActive(true);
+        
         ChooseErrorText.gameObject.SetActive(true);
         BackToMeumButton.gameObject.SetActive(true);
         IsCounting = false;
@@ -262,8 +262,8 @@ public class FirstModelController : MonoBehaviour
 
 
         TimeLeft = 1f;
-        ErrorMusic.Play();
-        BackgroundMusic.Stop();
+        FirstModelErrorMusic.Play();
+        FistModelBackgroundMusic.Stop();
     }
 
     // 左按钮判断
@@ -315,11 +315,11 @@ public class FirstModelController : MonoBehaviour
         FaileText.gameObject.SetActive(false);
         FalieImage.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
-        ShareButtton.gameObject.SetActive(false);
+        
         ChooseErrorText.gameObject.SetActive(false);
         TimeOutText.gameObject.SetActive(false);
         BackToMeumButton.gameObject.SetActive(false);
-        BackgroundMusic.Play();
+        FistModelBackgroundMusic.Play();
 
     }
     // 更新
@@ -344,7 +344,7 @@ public class FirstModelController : MonoBehaviour
             Restart.gameObject.SetActive(true);
             TimeOutText.gameObject.SetActive(true);
             BackToMeumButton.gameObject.SetActive(true);
-            ShareButtton.gameObject.SetActive(true);
+            
 
             TimeLeft = 0f;
             IsCounting = false;

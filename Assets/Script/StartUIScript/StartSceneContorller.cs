@@ -8,15 +8,24 @@ using StarkSDKSpace;
 public class StartSceneContorller : MonoBehaviour
 {
     public Button FirstModelButton;
+
+
+   
+
     
+
     void Start()
     {
+       
+   
+
 
         FirstModelButton.onClick.AddListener(FirstModelStart);
-       
+      
 
-        
-       
+
+
+
 
 
     }
@@ -25,12 +34,9 @@ public class StartSceneContorller : MonoBehaviour
     {
         SceneManager.LoadScene("FirstModel");
     }
-    public void SecondModelStart()
-    {
-        SceneManager.LoadScene("SecondModel");
-    }
+ 
 
 
 
-   
+
 }
