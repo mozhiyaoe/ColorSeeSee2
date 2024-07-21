@@ -87,7 +87,8 @@ public class FirstModelController : MonoBehaviour
     [HideInInspector]
 
     public bool IsCounting = true;
-
+     [HideInInspector]
+   
 
     // 颜色1
     public static Color32 Color1 = new Color32(255, 0, 0, 255);
@@ -371,6 +372,7 @@ public class FirstModelController : MonoBehaviour
                 NewTimeLeft = NewTimeLeft - 0.2f;
 
             }
+            Debug.Log(TimeLeft);
             IsRight = false;
 
         }
