@@ -691,7 +691,7 @@ namespace StarkSDKSpace
             {
                 return JsonUtility.FromJson<StarkStatInfo>(info);
             }
-            catch (Exception exception)
+            catch
             {
                 if (throwException)
                 {
