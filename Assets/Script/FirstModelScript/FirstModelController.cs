@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
@@ -11,41 +10,25 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks.Sources;
 using JetBrains.Annotations;
-
-
 public class FirstModelController : MonoBehaviour
 {
-
-
     // 背景图片
     public Image BackgroundImage;
-
-
     // 左按钮图片
     public Image LeftButtonImage;
-
-
     // 剩余时间
     [HideInInspector]
     public float TimeLeft;
-
     // 倒计时文本
     public Text CountdownText;
-
-
     // 单词文本
     public Text WordText;
-
     // 右按钮图片
     public Image RightButtonImage;
-
-
     // 随机单词
     public Word WordRandom;
-
     // 单词颜色
     public static Color32 WordColor;
-
     // 背景颜色
     public static Color32 BackgroundColor;
     // 失败文本
@@ -54,14 +37,12 @@ public class FirstModelController : MonoBehaviour
     public Image FalieImage;
     // 重置按钮
     public Button Restart;
-
     // 左按钮是否正确
     [HideInInspector]
     public bool RightButtonIsRight;
     // 右按钮是否正确
     [HideInInspector]
     public bool LeftButtonIsRight;
-
     // 左按钮
     public Button LeftButton;
     // 右按钮
@@ -76,19 +57,14 @@ public class FirstModelController : MonoBehaviour
     [HideInInspector]
     public int Score = 0;
     [HideInInspector]
-
     public bool IsRight;
-    
     [HideInInspector]
     public float NewTimeLeft = 5f;
     public Text TimeOutText;
     public Text ChooseErrorText;
     public Button BackToMeumButton;
     [HideInInspector]
-
     public bool IsCounting = true;
-
-
     // 颜色1
     public static Color32 Color1 = new Color32(255, 0, 0, 255);
     // 颜色2
@@ -103,10 +79,6 @@ public class FirstModelController : MonoBehaviour
     public static Color32 Color6 = new Color32(0, 255, 255, 255);
     // 颜色7
     public static Color32 Color7 = new Color32(128, 0, 128, 255);
-
-
-
-
     // 单词类
     public class Word
     {
@@ -121,9 +93,6 @@ public class FirstModelController : MonoBehaviour
             Color = color;
         }
     }
-
-
-
     // 单词1
     public static Word Word1 = new Word("红", Color1);
     // 单词2
@@ -138,22 +107,12 @@ public class FirstModelController : MonoBehaviour
     public static Word Word6 = new Word("青", Color6);
     // 单词7
     public static Word Word7 = new Word("紫", Color7);
-
-
-
     // 颜色数组
     [HideInInspector]
     public Color32[] ColorArry = new Color32[] { Color1, Color2, Color3 ,Color4,
   Color5,Color6, Color7};
-
     // 单词数组
     public Word[] WordArry = new Word[] { Word1, Word2, Word3, Word4, Word5, Word6, Word7 };
-
-
-
-
-
-
     // 随机选择单词
     public Word WordChange(Word[] arry)
     {
@@ -161,9 +120,6 @@ public class FirstModelController : MonoBehaviour
         int n = ran.Next(0, 7);
         return arry[n];
     }
-
-
-
     // 随机选择颜色
     public Color32 ColorChange(Color32[] arr)
     {
@@ -171,45 +127,28 @@ public class FirstModelController : MonoBehaviour
         int n = ran.Next(0, 7);
         return arr[n];
     }
-
-
-
-
     // 颜色变化
     public void Coloring()
     {
-
         // 背景颜色变化
         BackgroundImage.color = ColorChange(ColorArry);
-
         // 单词变化
         WordRandom = WordChange(WordArry);
-
-
         // 确保背景颜色和单词颜色不同
         while (BackgroundImage.color == WordRandom.Color)
         {
-
             BackgroundImage.color = ColorChange(ColorArry);
-
             WordRandom = WordChange(WordArry);
         }
-
         // 背景颜色
         BackgroundColor = BackgroundImage.color;
-
-
-
         // 单词文本
         WordText.text = WordRandom.Name;
-
         // 单词颜色
         WordColor = WordRandom.Color;
-
         // 随机选择一个按钮
         Random ran = new Random();
         int n = ran.Next(1, 3);
-
         // 左按钮颜色
         if (n == 1)
         {
@@ -228,10 +167,6 @@ public class FirstModelController : MonoBehaviour
         {
             RightButtonImage.color = WordColor;
         }
-
-
-
-
     }
     // 正确
     public void Right()
@@ -241,54 +176,35 @@ public class FirstModelController : MonoBehaviour
         FirstModelRightMusic.Play();
         IsRight = true;
         TimeLeft = NewTimeLeft;
-
-
-
     }
     // 失败
     public void Fail()
     {
-
-
-
         FaileText.gameObject.SetActive(true);
         FalieImage.gameObject.SetActive(true);
         Restart.gameObject.SetActive(true);
-        
         ChooseErrorText.gameObject.SetActive(true);
         BackToMeumButton.gameObject.SetActive(true);
         IsCounting = false;
-
-
-
         TimeLeft = 1f;
         FirstModelErrorMusic.Play();
         FistModelBackgroundMusic.Stop();
     }
-
     // 左按钮判断
     public void LeftGameJudge()
     {
-
-
         if (LeftButtonIsRight == true)
         {
-
             Right();
-
         }
         else
         {
             Fail();
         }
     }
-
     // 右按钮判断
     public void RightGameJudge()
     {
-
-
-
         if (RightButtonIsRight == true)
         {
             Right();
@@ -297,46 +213,30 @@ public class FirstModelController : MonoBehaviour
         {
             Fail();
         }
-
-
-
-
-
-
     }
-
     // 开始
     void Start()
     {
         TimeLeft = 5F;
-
-
         Coloring();
         FaileText.gameObject.SetActive(false);
         FalieImage.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
-        
         ChooseErrorText.gameObject.SetActive(false);
         TimeOutText.gameObject.SetActive(false);
         BackToMeumButton.gameObject.SetActive(false);
         FistModelBackgroundMusic.Play();
-
     }
     // 更新
     void Update()
     {
         RightButton.onClick.AddListener(RightGameJudge);
         LeftButton.onClick.AddListener(LeftGameJudge);
-
         CountdownText.text = TimeLeft.ToString(format: "0.00");
-
         if (IsCounting == true)
         {
             TimeLeft -= Time.deltaTime;
-
-
         }
-
         if (TimeLeft <= 0)
         {
             FaileText.gameObject.SetActive(true);
@@ -344,11 +244,8 @@ public class FirstModelController : MonoBehaviour
             Restart.gameObject.SetActive(true);
             TimeOutText.gameObject.SetActive(true);
             BackToMeumButton.gameObject.SetActive(true);
-            
-
             TimeLeft = 0f;
             IsCounting = false;
-
         }
         // 判断左右按钮是否正确
         if (BackgroundImage.color == RightButtonImage.color)
@@ -369,22 +266,9 @@ public class FirstModelController : MonoBehaviour
             if (TimeLeft > 0.5f)
             {
                 NewTimeLeft = NewTimeLeft - 0.2f;
-
             }
             IsRight = false;
-
         }
         ScoreText.text = Score.ToString();
-
-
-
-
-
-
-
-
-
-
     }
 }
-
