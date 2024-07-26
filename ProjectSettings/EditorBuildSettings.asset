@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstModel.unity
     guid: 70a33ca5e3f8cd248a7fcd98bccb4d89
-  - enabled: 1
-    path: Assets/Scenes/SecondModel.unity
-    guid: 60153c758d8bf5848b61f0c7be1089eb
   m_configObjects: {}

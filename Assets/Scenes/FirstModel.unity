@@ -1470,7 +1470,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1238100012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1008687229
@@ -1801,6 +1802,8 @@ MonoBehaviour:
   ChooseErrorText: {fileID: 1238100013}
   BackToMeumButton: {fileID: 2045141842}
   IsCounting: 1
+  GameStart: 0
+  GameOut: 0
   ColorArry:
   - serializedVersion: 2
     rgba: 4278190335
@@ -1879,16 +1882,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238100011}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.35, y: 1.35, z: 1.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2092789892}
+  m_Father: {fileID: 975641356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.0475, y: 232}
+  m_AnchoredPosition: {x: 550.86414, y: 1273.2}
   m_SizeDelta: {x: 633.1902, y: 106.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238100013
@@ -2685,7 +2688,6 @@ RectTransform:
   - {fileID: 544335313}
   - {fileID: 2045141841}
   - {fileID: 287982464}
-  - {fileID: 1238100012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
