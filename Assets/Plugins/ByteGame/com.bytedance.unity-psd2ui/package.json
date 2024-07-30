@@ -1,0 +1,14 @@
+{
+  "displayName": "ByteGame Psd2UI Unity Tool",
+  "name": "com.bytedance.unity-psd2ui",
+  "version": "1.1.29",
+  "unity": "2019.1",
+  "description": "Bytedance Unity UI Develop Tool.",
+  "keywords": [],
+  "category": "Libraries",
+  "links": [
+  	{ "label": "Document", "url": "https://bytedance.feishu.cn/docs/doccnNUo73dLZ9bMQWjzEtGp21c" }
+  ],
+  "dependencies": {
+  }
+}
