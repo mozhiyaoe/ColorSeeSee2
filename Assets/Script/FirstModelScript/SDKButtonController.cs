@@ -4,37 +4,35 @@ using StarkSDKSpace;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using StarkSDKSpace.UNBridgeLib.LitJson;
 public class StarkSDKTest : MonoBehaviour
 {
     public Button ShareButton;
-
     private GameObject Background;
-
     private FirstModelController FirstModelController;
-
     private bool GetGameStart;
-
     private bool GetGameOut;
+    public Button GetRankButton;
+    private int rankDataType = 0;
+    private string zoneId = "default";
     void Start()
     {
         StartVideo();
         Background = GameObject.Find("Background");
         FirstModelController = Background.GetComponent<FirstModelController>();
         ShareButton.onClick.AddListener(ShareVideo);
-
+        GetRankButton.onClick.AddListener(GetImRankList);
     }
     void Update()
     {
         GetGameStart = FirstModelController.GameStart;
         GetGameOut = FirstModelController.GameOut;
         Debug.Log("GetGameOut"+GetGameOut);
-
-
         if (GetGameOut == true || GetGameStart == false)
         {
             StopVideo();
         }
-
+        UpdateRankData();
     }
     void StartVideo()
     {
@@ -96,4 +94,72 @@ public class StarkSDKTest : MonoBehaviour
         bool isStop = StarkSDK.API.GetStarkGameRecorder().StopRecord(SuccessCallback, FailedCallback, null, false);
         Debug.Log("停止录制视频状态.." + isStop);
     }
+       public void UpdateRankData()
+    {
+        int starCount = FirstModelController.Score;  //todo... 修改为你的数值
+        SetImRankList(starCount);
+    }
+    public void SetImRankList(int rankValue)
+    {
+        var paramJson = new StarkSDKSpace.UNBridgeLib.LitJson.JsonData
+        {
+            ["dataType"] = rankDataType,
+            ["value"] = rankValue,
+            //["priority"] = int.Parse(priority),
+            ["zoneId"] = zoneId
+        };
+        Debug.Log($"SetImRankData param:{paramJson.ToJson()}");
+        StarkSDK.API.GetStarkRank().SetImRankDataV2(paramJson, (isSuccess, errMsg) =>
+        {
+            if (isSuccess)
+            {
+                Debug.Log("设置排行榜数据成功");
+            }
+            else
+            {
+                Debug.Log("设置排行榜数据成功");
+            }
+        });
+    }
+     public void GetImRankList()
+    {
+        // <param name="rankType">代表数据排序周期，day为当日写入的数据做排序；week为自然周，month为自然月，all为半年--(Require)</param>
+        // <param name="dataType">由于数字类型的数据与枚举类型的数据无法同时排序，因此需要选择排序哪些类型的数据--(Require)</param>
+        // <param name="relationType">选择榜单展示范围。default: 好友及总榜都展示，all：仅总榜单--(Nullable)</param>
+        // <param name="suffix">数据后缀，最后展示样式为 value + suffix，若suffix传“分”，则展示 103分、104分--(Nullable)</param>
+        // <param name="rankTitle">排行榜标题的文案--(Nullable)</param>
+        // <param name="zoneId">排行榜分区标识--(Nullable)</param>
+        // <param name="paramJson">以上参数使用json格式传入，例如"{"rankType":"week","dataType":0,"relationType":"all","suffix":"分","rankTitle":"","zoneId":"default"}"</param>
+        // <param name="action">回调函数</param>
+        var paramJson = new StarkSDKSpace.UNBridgeLib.LitJson.JsonData
+        {
+            ["rankType"] = RankType.month.ToString(),
+            ["dataType"] = rankDataType,
+            ["relationType"] = "default",
+            ["suffix"] = "分",
+            ["rankTitle"] = "巅峰排行榜",
+            ["zoneId"] = zoneId,
+        };
+        Debug.Log($"GetImRankList param:{paramJson.ToJson()}");
+        StarkSDK.API.GetStarkRank().GetImRankListV2(paramJson, (isSuccess, errMsg) =>
+        {
+            if (isSuccess)
+            {
+            }
+            else
+            {
+            }
+        });
+    }
+}
+public enum RankType
+{
+    // 天
+    day,
+    // 自然周
+    week,
+    // 自然月
+    month,
+    // 半年
+    all
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 public class FirstModelRestartButton : MonoBehaviour
 {
     public Button RestartButton;
@@ -12,7 +11,6 @@ public class FirstModelRestartButton : MonoBehaviour
     {
         RestartButton.onClick.AddListener(OnRestart);
         BackToMeumButton.onClick.AddListener(BackToMeum);
-
     }
     public void OnRestart()
     {

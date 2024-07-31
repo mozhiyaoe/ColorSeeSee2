@@ -64,13 +64,12 @@ public class FirstModelController : MonoBehaviour
     public Text TimeOutText;
     public Text ChooseErrorText;
     public Button BackToMeumButton;
+    public Button GetRankButton;
     [HideInInspector]
     public bool IsCounting = true;
     [HideInInspector]
-
     public bool GameStart;
     [HideInInspector]
-
     public bool GameOut;
     [HideInInspector]
     // 颜色1
@@ -194,6 +193,7 @@ public class FirstModelController : MonoBehaviour
         ShareButtton.gameObject.SetActive(true);
         ChooseErrorText.gameObject.SetActive(true);
         BackToMeumButton.gameObject.SetActive(true);
+        GetRankButton.gameObject.SetActive(true);
         IsCounting = false;
         TimeLeft = 1f;
         ErrorMusic.Play();
@@ -237,6 +237,7 @@ public class FirstModelController : MonoBehaviour
         ChooseErrorText.gameObject.SetActive(false);
         TimeOutText.gameObject.SetActive(false);
         BackToMeumButton.gameObject.SetActive(false);
+        GetRankButton.gameObject.SetActive(false);
         BackgroundMusic.Play();
         GameStart = true;
     }
@@ -278,13 +279,11 @@ public class FirstModelController : MonoBehaviour
         //自动加分
         if (IsRight == true)
         {
-
             Score = Score + 1;
             if (TimeLeft > 0.5f)
             {
                 NewTimeLeft = NewTimeLeft - 0.2f;
             }
-
             IsRight = false;
         }
         ScoreText.text = Score.ToString();
