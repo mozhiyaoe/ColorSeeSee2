@@ -1880,6 +1880,7 @@ MonoBehaviour:
   TimeOutText: {fileID: 287982465}
   ChooseErrorText: {fileID: 1238100013}
   BackToMeumButton: {fileID: 2045141842}
+  GetRankButton: {fileID: 1458339355}
   IsCounting: 1
   GameStart: 0
   GameOut: 0

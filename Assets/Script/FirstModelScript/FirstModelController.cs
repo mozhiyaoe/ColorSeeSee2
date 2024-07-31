@@ -244,7 +244,7 @@ public class FirstModelController : MonoBehaviour
     // 更新
     void Update()
     {
-        Debug.Log( "GameOut"+GameOut);
+        Debug.Log("GameOut" + GameOut);
         RightButton.onClick.AddListener(RightGameJudge);
         LeftButton.onClick.AddListener(LeftGameJudge);
         CountdownText.text = TimeLeft.ToString(format: "0.00");
@@ -260,6 +260,8 @@ public class FirstModelController : MonoBehaviour
             TimeOutText.gameObject.SetActive(true);
             BackToMeumButton.gameObject.SetActive(true);
             ShareButtton.gameObject.SetActive(true);
+            GetRankButton.gameObject.SetActive(true);
+
             TimeLeft = 0f;
             IsCounting = false;
             GameStart = false;
