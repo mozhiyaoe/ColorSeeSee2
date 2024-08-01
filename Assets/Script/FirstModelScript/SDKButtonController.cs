@@ -15,8 +15,10 @@ public class StarkSDKTest : MonoBehaviour
     public Button GetRankButton;
     private int rankDataType = 0;
     private string zoneId = "default";
+    public int MaxScore;
     void Start()
     {
+        MaxScore = PlayerPrefs.GetInt("MaxScore");
         StartVideo();
         Background = GameObject.Find("Background");
         FirstModelController = Background.GetComponent<FirstModelController>();
@@ -27,12 +29,19 @@ public class StarkSDKTest : MonoBehaviour
     {
         GetGameStart = FirstModelController.GameStart;
         GetGameOut = FirstModelController.GameOut;
-        Debug.Log("GetGameOut"+GetGameOut);
+        Debug.Log("GetGameOut" + GetGameOut);
         if (GetGameOut == true || GetGameStart == false)
         {
             StopVideo();
         }
         UpdateRankData();
+        if (FirstModelController.Score > MaxScore)
+        {
+            MaxScore = FirstModelController.Score;
+
+        }
+        PlayerPrefs.SetInt("MaxScore", MaxScore);
+        PlayerPrefs.Save();
     }
     void StartVideo()
     {
@@ -94,9 +103,9 @@ public class StarkSDKTest : MonoBehaviour
         bool isStop = StarkSDK.API.GetStarkGameRecorder().StopRecord(SuccessCallback, FailedCallback, null, false);
         Debug.Log("停止录制视频状态.." + isStop);
     }
-       public void UpdateRankData()
+    public void UpdateRankData()
     {
-        int starCount = FirstModelController.Score;  //todo... 修改为你的数值
+        int starCount = MaxScore;  //todo... 修改为你的数值
         SetImRankList(starCount);
     }
     public void SetImRankList(int rankValue)
@@ -121,7 +130,7 @@ public class StarkSDKTest : MonoBehaviour
             }
         });
     }
-     public void GetImRankList()
+    public void GetImRankList()
     {
         // <param name="rankType">代表数据排序周期，day为当日写入的数据做排序；week为自然周，month为自然月，all为半年--(Require)</param>
         // <param name="dataType">由于数字类型的数据与枚举类型的数据无法同时排序，因此需要选择排序哪些类型的数据--(Require)</param>
