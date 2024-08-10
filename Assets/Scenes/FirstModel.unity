@@ -1837,6 +1837,8 @@ MonoBehaviour:
   ChooseErrorText: {fileID: 1238100013}
   BackToMeumButton: {fileID: 2045141842}
   IsCounting: 1
+  MaxScore: 0
+  MaxScoreText: {fileID: 23685839}
   ColorArry:
   - serializedVersion: 2
     rgba: 4278190335

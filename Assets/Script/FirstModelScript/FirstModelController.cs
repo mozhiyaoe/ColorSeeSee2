@@ -65,6 +65,10 @@ public class FirstModelController : MonoBehaviour
     public Button BackToMeumButton;
     [HideInInspector]
     public bool IsCounting = true;
+    [HideInInspector]
+
+    public int MaxScore;
+    public Text MaxScoreText;
     // 颜色1
     public static Color32 Color1 = new Color32(255, 0, 0, 255);
     // 颜色2
@@ -217,6 +221,7 @@ public class FirstModelController : MonoBehaviour
     // 开始
     void Start()
     {
+        MaxScore = PlayerPrefs.GetInt("MaxScore");
         TimeLeft = 5F;
         Coloring();
         FaileText.gameObject.SetActive(false);
@@ -226,6 +231,7 @@ public class FirstModelController : MonoBehaviour
         TimeOutText.gameObject.SetActive(false);
         BackToMeumButton.gameObject.SetActive(false);
         FistModelBackgroundMusic.Play();
+        MaxScoreText.text = MaxScore.ToString();
     }
     // 更新
     void Update()
@@ -269,6 +275,12 @@ public class FirstModelController : MonoBehaviour
             }
             IsRight = false;
         }
+        if (Score > MaxScore)
+        {
+            MaxScore = Score;
+        }
+        PlayerPrefs.SetInt("MaxScore", MaxScore);
+        PlayerPrefs.Save();
         ScoreText.text = Score.ToString();
     }
 }
