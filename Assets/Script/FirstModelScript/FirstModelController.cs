@@ -71,6 +71,7 @@ public class FirstModelController : MonoBehaviour
     public bool GameStart;
     [HideInInspector]
     public bool GameOut;
+    
     [HideInInspector]
     // 颜色1
     public static Color32 Color1 = new Color32(255, 0, 0, 255);
